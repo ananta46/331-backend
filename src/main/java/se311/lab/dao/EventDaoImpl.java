@@ -1,6 +1,7 @@
 package se311.lab.dao;
 
 import jakarta.annotation.PostConstruct;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Repository;
 import se311.lab.entity.Event;
 
@@ -8,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Repository
+@Profile("manual")
 public class EventDaoImpl implements EventDao {
     List<Event> eventList;
 
@@ -102,6 +104,5 @@ public class EventDaoImpl implements EventDao {
     public Event getEvent(Long id) {
 
         return eventList.stream().filter(event -> event.getId().equals(id)).findFirst().orElse(null);
-
     }
 }
