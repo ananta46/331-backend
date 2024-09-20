@@ -21,9 +21,13 @@ public class EventServiceImpl implements EventService {
     public Page<Event> getEvents(Integer pageSize, Integer page) {
         return eventDao.getEvents(pageSize, page);
     }
-
     @Override
     public Event getEvent(Long id) {
         return eventDao.getEvent(id);
+    }
+
+    @Override
+    public Event saveEvent(Event event) {
+        return eventDao.saveEvent(event);
     }
 }

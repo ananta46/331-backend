@@ -10,4 +10,6 @@ public interface EventService {
     Page<Event> getEvents(Integer pageSize, Integer page);
     Event getEvent(Long id);
 
+    Event saveEvent(Event event);
+
 }

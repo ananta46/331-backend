@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-@Profile("manual")
+@Profile("manual-event")
 public class EventDaoImpl implements EventDao {
     List<Event> eventList;
 
@@ -107,5 +107,11 @@ public class EventDaoImpl implements EventDao {
     public Event getEvent(Long id) {
 
         return eventList.stream().filter(event -> event.getId().equals(id)).findFirst().orElse(null);
+    }
+    @Override
+    public Event saveEvent(Event event) {
+        event.setId(eventList.get(eventList.size() - 1).getId() + 1);
+        eventList.add(event);
+        return event;
     }
 }
